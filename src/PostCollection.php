@@ -34,4 +34,17 @@ class PostCollection implements IteratorAggregate, JsonSerializable
     {
         return count($this->posts);
     }
+
+    public function getIterator()
+    {
+        return new ArrayIterator($this);
+    }
+
+    public function jsonSerialize() 
+    {
+        return array(
+            'posts' => $this->posts
+        );
+    }
+
 }
